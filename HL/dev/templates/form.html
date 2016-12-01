@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<form action="{{ form_action }}"
+      method="{{ form_method }}">
+  {% if form_method == "post" %}
+    {% csrf_token %}
+  {% endif %}
+
+  {{ form.as_p }}
+</form>
+
+{% if stock %}
+    {{ stock }}
+{% endif %}
+<p>
+<img style="float:right" src='{{ pic_source }}' width=40% />
+{{ html_table | safe}}
+</p>
+
+{% endblock %}
